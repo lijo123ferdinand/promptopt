@@ -1,0 +1,35 @@
+[build-system]
+requires = ["setuptools>=69"]
+build-backend = "setuptools.build_meta"
+
+[project]
+name = "promptopt"
+version = "0.1.0"
+description = "DSPy-style automatic prompt optimization, framework-free: bootstrap few-shot, instruction search with successive halving, random search, diffable compiled programs."
+readme = "README.md"
+license = "MIT"
+requires-python = ">=3.11"
+authors = [{ name = "Lijo Ferdinand", email = "lijoferdinand@gmail.com" }]
+keywords = ["llm", "prompt-engineering", "prompt-optimization", "dspy", "few-shot", "evaluation", "anthropic", "ollama"]
+classifiers = [
+    "Programming Language :: Python :: 3",
+    "Topic :: Scientific/Engineering :: Artificial Intelligence",
+    "Topic :: Software Development :: Libraries",
+]
+dependencies = []   # standard library only, on purpose
+
+[project.optional-dependencies]
+anthropic = ["anthropic>=0.40"]
+dev = ["pytest>=8"]
+
+[project.scripts]
+promptopt = "promptopt.cli:main"
+
+[project.urls]
+Repository = "https://github.com/lijo123ferdinand/promptopt"
+
+[tool.setuptools.packages.find]
+where = ["src"]
+
+[tool.pytest.ini_options]
+testpaths = ["tests"]
